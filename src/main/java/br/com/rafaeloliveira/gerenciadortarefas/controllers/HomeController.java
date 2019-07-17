@@ -2,12 +2,16 @@ package br.com.rafaeloliveira.gerenciadortarefas.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 	
 	@GetMapping("/")
-	public String home() {
-		return "home/home";
+	public ModelAndView home() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home/home");
+		mv.addObject("mensagem", "Mensagem do controller");
+		return mv;
 	}
 }
