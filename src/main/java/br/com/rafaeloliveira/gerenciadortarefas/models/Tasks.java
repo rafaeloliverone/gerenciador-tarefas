@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "tas_tasks")
 public class Tasks {
@@ -25,6 +27,7 @@ public class Tasks {
 	private String description;
 	
 	@Column(name = "tas_expiration_date", nullable = false)
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date expirationDate;
 	
 	@Column(name = "tas_done", nullable = false)

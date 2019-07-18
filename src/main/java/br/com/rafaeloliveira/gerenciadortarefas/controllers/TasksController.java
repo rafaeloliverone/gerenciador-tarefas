@@ -3,9 +3,11 @@ package br.com.rafaeloliveira.gerenciadortarefas.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.rafaeloliveira.gerenciadortarefas.models.Tasks;
 import br.com.rafaeloliveira.gerenciadortarefas.repositories.TaskRepository;
 
 @Controller
@@ -26,4 +28,20 @@ public class TasksController {
 		mv.addObject("tarefas", taskRepositor.findAll());
 		return mv;
 	}
+	
+	@GetMapping("/inserir")
+	public ModelAndView insert() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("tarefas/inserir");
+		mv.addObject("tarefa", new Tasks());
+		return mv;
+	}
+	
+//	Vai receber um objeto tarefa, que vai vim do inserir.html e vai salvar no repositório que já está na classe.
+	@PostMapping("/inserir")
+	public String inserir(Tasks task) {
+		taskRepositor.save(task);
+		return "redirect:/tarefas/listar";
+	}
+	
 }

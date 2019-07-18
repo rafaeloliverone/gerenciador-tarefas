@@ -11,8 +11,9 @@
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
     <div class="container">
-		<h3>Listagem de Tarefas</h3>
-		<div th:each="tarefa: ${tarefas}">
+		<h3 class="mt-3">Listagem de Tarefas</h3>
+		<a href="/tarefas/inserir" class="btn btn-success">Inserir nova tarefa</a>
+		<div th:each="tarefa: ${tarefas}" class="mt-3">
 			<div class="card bg-light mb-3">
 				<div class="card-header" th:text="${tarefa.title}"></div>
 				<div class="card-body">
