@@ -10,10 +10,17 @@
 </head>
 <body>
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
-
-	<div class="container">
-	    <p>Olá, seja bem vindo</p>
-		<p th:text="${mensagem}"></p>
+    <div class="container">
+		<h3>Listagem de Tarefas</h3>
+		<div th:each="tarefa: ${tarefas}">
+			<div class="card bg-light mb-3">
+				<div class="card-header" th:text="${tarefa.title}"></div>
+				<div class="card-body">
+					<p class="card-text" th:text="${tarefa.description}"></p>
+					<p class="card-text" th:text="${'Data de expiração: ' + #dates.format(tarefa.expirationDate, 'dd/MM/yyyy')}"></p>
+				</div>
+			</div>
+		</div>
 	</div>
 	
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
