@@ -13,25 +13,26 @@
 	
 	<div class="container">
 		 <h3>Inserção de nova tarefa</h3>
-		 <form class="form-horizontal" action="/tarefas/inserir" method="post" th:object="${tarefa}">
+		<form class="form-horizontal" action="/tarefas/inserir" method="post" th:object="${tarefa}">
+	
 		    <div class="form-group col-md-6">
-		      <label>Titulo:</label>
-		      <input type="text" class="form-control" th:field="*{title}">
+		      	<label>Titulo:</label>
+		      	<input type="text" class="form-control" th:field="*{title}">
 		    </div>
+
 		    <div class="form-group col-md-6">
-		      <label>Descrição:</label>
-		      <input type="text" class="form-control" th:field="*{description}">
+		      	<label>Descrição:</label>
+		      	<input type="text" class="form-control" th:field="*{description}">
 		    </div>
+
 		    <div class="form-group col-md-6">
 		        <label>Data de expiração:</label>
-		        <input type="text" class="form-control" placeholder="dd-MM-yyyy" th:field="*{expirationDate}">
+		        <input type="date" class="form-control" placeholder="dd-MM-yyyy" th:field="*{expirationDate}">
 		    </div>
 		    
 		    <button type="submit" class="btn btn-primary">Submit</button>
 		</form>
 	</div>
-
-	
 	<script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>

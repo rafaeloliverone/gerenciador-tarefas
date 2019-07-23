@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -16,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Tasks {
 	
 	@Id 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "tas_id")
 	private Long id;
 	

@@ -39,9 +39,11 @@ public class TasksController {
 	
 //	Vai receber um objeto tarefa, que vai vim do inserir.html e vai salvar no repositório que já está na classe.
 	@PostMapping("/inserir")
-	public String inserir(Tasks task) {
+	public String inserir( Tasks task ){
 		taskRepositor.save(task);
 		return "redirect:/tarefas/listar";
 	}
 	
+
+
 }
