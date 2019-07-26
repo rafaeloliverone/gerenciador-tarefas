@@ -3,7 +3,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Gerenciador de Tarefas - Inclusão de nova tarefa</title>
+    <title>Gerenciador de Tarefas - Alteração de uma tarefa</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href="/webjars/bootstrap/css/bootstrap.min.css">
     
@@ -12,8 +12,9 @@
 	<div th:replace="fragmentos/fragmentos :: cabecalho"></div>
 	
 	<div class="container">
-		 <h3>Inserção de nova tarefa</h3>
-		<form class="form-horizontal" action="/tarefas/inserir" method="post" th:object="${tarefa}">
+		 <h3>Alteração de uma tarefa</h3>
+		<form class="form-horizontal" action="/tarefas/alterar" method="post" th:object="${tarefa}">
+			<input type="hidden" th:field="*{id}">
 			
 			<div class="row">
 			    <div class="form-group col-md-6" >

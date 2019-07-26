@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
@@ -20,13 +22,18 @@ public class Tasks {
 	private Long id;
 	
 	@Column(name = "tas_title", length = 50, nullable = false)
+	@NotNull(message = "O titulo é obrigatório")
+	@Length(max=50, min=1, message = "O titulo deve conter entre 1 e 50 caracteres")
 	private String title;
 	
+
 	@Column(name = "tas_description", length = 100, nullable = true)
+	@Length(max=100, message = "A descrição deve conter até 100 caracteres")
 	private String description;
 	
 	@Column(name = "tas_expiration_date", nullable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "A data de expiração é obrigatório")
 	private Date expirationDate;
 	
 	@Column(name = "tas_done", nullable = false)
