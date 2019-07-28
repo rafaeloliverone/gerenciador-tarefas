@@ -97,4 +97,18 @@ public class TasksController {
 		return mv;
 	}
 
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id) {
+		taskRepositor.deleteById(id);
+		return "redirect:/tarefas/listar";
+	}
+	
+	@GetMapping("/concluir/{id}")
+	public String concluir(@PathVariable("id") Long id) {
+		Tasks tarefa = taskRepositor.getOne(id);
+		tarefa.setDone(true);
+		taskRepositor.save(tarefa);
+		return "redirect:/tarefas/listar";
+	}
+		
 }
