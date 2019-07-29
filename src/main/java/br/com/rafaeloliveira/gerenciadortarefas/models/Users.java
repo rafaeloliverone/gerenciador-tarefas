@@ -1,10 +1,14 @@
 package br.com.rafaeloliveira.gerenciadortarefas.models;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -27,6 +31,9 @@ public class Users {
 	@Size(min=3)
 	private String password;
 
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	private List<Tasks> tasks;
+	
 	public Long getId() {
 		return id;
 	}
@@ -51,4 +58,13 @@ public class Users {
 		this.password = password;
 	}
 
+	public List<Tasks> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Tasks> tasks) {
+		this.tasks = tasks;
+	}
+
+	
 }

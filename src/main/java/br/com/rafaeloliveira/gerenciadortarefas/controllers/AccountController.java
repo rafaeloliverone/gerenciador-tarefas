@@ -37,30 +37,19 @@ public class AccountController {
 		Users usr = serviceUser.encontrarPorEmail(user.getEmail());
 		
 		if (usr != null) {
-			System.out.println("USUÁRIO CADASTRADO");
-			System.out.println("USUÁRIO CADASTRADO");
-			System.out.println("USUÁRIO CADASTRADO");
 			result.rejectValue("email", "", "Usuário já cadastrado");
 		} 
 		
 		if (user.getPassword() == null) {
-			System.out.println("SENHAAA ERROO");
 			result.rejectValue("password", "", "password vazio");
 		}
 		
 		if (result.hasErrors()) {
 			mv.setViewName("account/register");
-			System.out.println("RESULT HAS ERROR");
-			System.out.println("RESULT HAS ERROR");
-			System.out.println("RESULT HAS ERROR");
 			mv.addObject("user", user);
 		} else  {
-			System.out.println("SALVANDOOO");
-			System.out.println("SALVANDOOO");
-			System.out.println("SALVANDOOO");
 			serviceUser.salvar(user);
 			mv.setViewName("redirect:/login");
-			
 			
 		}
 		
